@@ -1044,6 +1044,9 @@
         <video class="modal-video" id="experienceVideo" controls playsinline preload="metadata">
           Il tuo browser non supporta il video.
         </video>
+        <div id="videoError" style="display:none;padding:14px 4px 0;color:#f0d18e;font-size:.9rem;text-align:center;">
+          Il video non riesce a caricarsi. Controlla nome file, maiuscole/minuscole e formato MP4/H.264.
+        </div>
       </div>
     </div>
   </div>
@@ -1091,21 +1094,44 @@
     const modalTitle = document.getElementById("modalTitle");
     const closeModal = document.getElementById("closeModal");
     const experienceVideo = document.getElementById("experienceVideo");
+    const videoError = document.getElementById("videoError");
 
     document.querySelectorAll(".js-media[data-video]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
+      btn.addEventListener("click", async ()=>{
         modalTitle.textContent = btn.dataset.title || "Video";
+        videoError.style.display = "none";
+
+        experienceVideo.pause();
+        experienceVideo.removeAttribute("src");
+        experienceVideo.load();
+
         experienceVideo.src = btn.dataset.video;
+        experienceVideo.load();
+
         modal.classList.add("open");
         document.body.classList.add("modal-open");
+
+        try {
+          await experienceVideo.play();
+        } catch (err) {
+          // Il click dell'utente dovrebbe consentire l'autoplay.
+          // Se il browser lo blocca, i controlli restano comunque disponibili.
+          console.warn("Autoplay non avviato:", err);
+        }
+
         closeModal.focus();
       });
+    });
+
+    experienceVideo.addEventListener("error", ()=>{
+      videoError.style.display = "block";
     });
 
     function closeMedia(){
       if (!experienceVideo.paused) experienceVideo.pause();
       experienceVideo.removeAttribute("src");
       experienceVideo.load();
+      videoError.style.display = "none";
       modal.classList.remove("open");
       document.body.classList.remove("modal-open");
     }
