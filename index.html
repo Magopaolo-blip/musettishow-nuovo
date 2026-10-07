@@ -39,7 +39,7 @@
     button{font:inherit}
     img{max-width:100%;display:block}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .section{padding:72px 0}
+    .section{padding:52px 0}
     .eyebrow{
       text-transform:uppercase;
       letter-spacing:.16em;
@@ -135,7 +135,7 @@
 
     /* HERO */
     .hero{
-      min-height:610px;
+      min-height:500px;
       position:relative;
       overflow:hidden;
       border-bottom:1px solid var(--line);
@@ -145,13 +145,13 @@
         linear-gradient(135deg,#08111c,#0c1a29);
     }
     .hero-inner{
-      min-height:610px;
+      min-height:500px;
       display:flex;
       align-items:center;
       position:relative;
       z-index:2;
     }
-    .hero-copy{max-width:650px;padding:58px 0}
+    .hero-copy{max-width:650px;padding:42px 0}
     .hero h1{
       font-size:clamp(3.3rem,6.6vw,6.3rem);
       line-height:.9;
@@ -200,7 +200,7 @@
       gap:10px;
     }
     .card{
-      min-height:360px;
+      min-height:300px;
       position:relative;
       overflow:hidden;
       border:1px solid var(--line);
@@ -227,7 +227,7 @@
       z-index:-1;
     }
     .card-content{
-      min-height:360px;
+      min-height:300px;
       padding:20px 18px 18px;
       display:flex;
       flex-direction:column;
@@ -272,7 +272,7 @@
         url('assets/contexts-bg.jpg') center/cover no-repeat,
         #0a1420;
       border-bottom:1px solid var(--line);
-      padding:22px 0 24px;
+      padding:16px 0 18px;
     }
     .contexts-title{
       text-align:center;
@@ -289,7 +289,7 @@
       gap:0;
     }
     .context{
-      min-height:106px;
+      min-height:84px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -320,7 +320,7 @@
       display:grid;
       grid-template-columns:.8fr 1.2fr;
       align-items:center;
-      gap:34px;
+      gap:26px;
     }
     .showreel h2{
       font-size:clamp(2.5rem,4.5vw,4.2rem);
@@ -328,7 +328,7 @@
     }
     .showreel p{color:var(--muted);font-size:1.05rem}
     .show-media{
-      min-height:330px;
+      min-height:260px;
       position:relative;
       border:1px solid var(--line);
       background:
@@ -360,7 +360,7 @@
     }
     .why-item{
       text-align:center;
-      padding:22px 26px 16px;
+      padding:12px 22px 8px;
       border-right:1px solid var(--line);
     }
     .why-item:last-child{border-right:0}
@@ -389,14 +389,14 @@
       align-items:stretch;
     }
     .about-photo{
-      min-height:360px;
+      min-height:300px;
       background:
         linear-gradient(rgba(5,10,18,.10),rgba(5,10,18,.20)),
         url('assets/paolo.jpg') center/cover no-repeat,
         #111d29;
     }
     .about-copy{
-      padding:56px 48px;
+      padding:36px 38px;
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -418,7 +418,7 @@
 
     /* CREDITS */
     .credits{
-      padding:28px 0 32px;
+      padding:18px 0 20px;
       background:
         linear-gradient(rgba(8,18,31,.93),rgba(8,18,31,.93)),
         url('assets/credits-bg.jpg') center/cover no-repeat,
@@ -449,7 +449,7 @@
       gap:14px;
     }
     .credit{
-      min-height:58px;
+      min-height:72px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -457,7 +457,11 @@
       color:#f5f2eb;
       font-weight:900;
       font-size:.84rem;
+      padding:8px 10px;
     }
+    .credit .tv-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;line-height:1}
+    .credit .tv-main{font-size:1.08rem;letter-spacing:-.02em;font-weight:900}
+    .credit .tv-sub{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:#d8d4cb;font-weight:700}
     .credit.cinema{
       border-left:1px solid var(--line);
       padding-left:18px;
@@ -469,7 +473,7 @@
 
     /* CTA */
     .final{
-      min-height:340px;
+      min-height:240px;
       display:flex;
       align-items:center;
       text-align:center;
@@ -478,7 +482,7 @@
         url('assets/final-bg.jpg') center/cover no-repeat,
         #17100b;
     }
-    .final-inner{padding:58px 0}
+    .final-inner{padding:38px 0}
     .final .eyebrow{margin-bottom:10px}
     .final h2{
       max-width:830px;
@@ -604,7 +608,7 @@
 
     @media(max-width:720px){
       .wrap{width:min(var(--max),calc(100% - 28px))}
-      .section{padding:52px 0}
+      .section{padding:40px 0}
       .nav{min-height:64px}
       .nav-wa{display:none!important}
       .hero{min-height:540px}
@@ -687,6 +691,7 @@
           <div class="hero-actions">
             <a class="btn dark" href="#showreel">▶ Guardami dal vivo</a>
             <a class="btn" href="#esperienze">Scopri le esperienze ↓</a>
+            <a class="btn wa js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">Verifica disponibilità</a>
           </div>
         </div>
       </div>
@@ -767,7 +772,10 @@
           <div class="eyebrow">Guardami dal vivo</div>
           <h2>Un minuto vale più di molte parole.</h2>
           <p>Il video deve mostrare ritmo, pubblico, reazioni e varietà delle esperienze.</p>
-          <button class="btn js-media" type="button" data-title="Showreel Paolo Musetti">▶ Play showreel</button>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn js-media" type="button" data-title="Showreel Paolo Musetti">▶ Play showreel</button>
+            <a class="btn wa js-wa" data-topic="Ho visto lo showreel e vorrei verificare la disponibilità" href="#">Verifica disponibilità</a>
+          </div>
         </div>
 
         <button class="show-media js-media" type="button" data-title="Showreel Paolo Musetti" aria-label="Apri showreel">
@@ -819,17 +827,12 @@
         <div class="credits-sub">40 anni di spettacolo</div>
 
         <div class="credit-row">
-          <div class="credit">Italia's Got Talent</div>
-          <div class="credit">Amici</div>
-          <div class="credit">Avanti un altro</div>
-          <div class="credit">I soliti ignoti</div>
-          <div class="credit">In famiglia</div>
-          <div class="credit cinema">
-            <div>
-              <strong>Al cinema con Ettore Scola</strong>
-              “Che strano chiamarsi Federico”
-            </div>
-          </div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">ITALIA'S GOT TALENT</div><div class="tv-sub">TV</div></div></div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">AMICI</div><div class="tv-sub">di Maria De Filippi</div></div></div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">AVANTI UN ALTRO!</div><div class="tv-sub">Canale 5</div></div></div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">I SOLITI IGNOTI</div><div class="tv-sub">Rai 1</div></div></div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">IN FAMIGLIA</div><div class="tv-sub">TV</div></div></div>
+          <div class="credit cinema"><div><strong>AL CINEMA CON ETTORE SCOLA</strong>“Che strano chiamarsi Federico”</div></div>
         </div>
       </div>
     </section>
@@ -870,7 +873,7 @@
   <script>
     // INSERISCI QUI IL NUMERO WHATSAPP, SOLO CIFRE E PREFISSO INTERNAZIONALE.
     // Esempio: const WHATSAPP_NUMBER = "393331234567";
-    const WHATSAPP_NUMBER = "";
+    const WHATSAPP_NUMBER = "393282924284";
 
     const BASE_MESSAGE = "Ciao Paolo, sto organizzando un evento e vorrei capire quale esperienza può essere più adatta.";
 
