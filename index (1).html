@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paolo Musetti | Mentalismo, Close-up, Bubble Experience e Tarocchi</title>
+  <meta name="description" content="Paolo Musetti: mentalismo, magia close-up, Bubble Experience e Tarocchi per eventi privati, wedding, corporate, location e teatri.">
+  <meta name="theme-color" content="#09090b">
+  <meta property="og:title" content="Paolo Musetti — Creo stupore. In forme diverse.">
+  <meta property="og:description" content="Mentalismo, magia close-up, Bubble Experience e Tarocchi: esperienze dal vivo per eventi, wedding, corporate, location e teatri.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+
+  <style>
+    :root{
+      --bg:#09090b;
+      --bg2:#0f1013;
+      --panel:#15161a;
+      --panel2:#1b1c21;
+      --text:#f6f3ec;
+      --muted:#b9b5ab;
+      --line:rgba(255,255,255,.12);
+      --gold:#dfb65d;
+      --gold2:#f0d89f;
+      --green:#25D366;
+      --max:1180px;
+      --radius:24px;
+      --shadow:0 20px 70px rgba(0,0,0,.32);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 85% -10%, rgba(223,182,93,.11), transparent 32%),
+        radial-gradient(circle at 0% 25%, rgba(255,255,255,.035), transparent 28%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    body.modal-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--max), calc(100% - 40px));margin:auto}
+    .section{padding:92px 0}
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.74rem;
+      font-weight:850;
+      color:var(--gold2);
+      margin-bottom:16px;
+    }
+    h1,h2,h3,p{margin-top:0}
+    h2{
+      font-size:clamp(2.2rem,4.8vw,4.7rem);
+      line-height:.98;
+      letter-spacing:-.045em;
+      margin-bottom:18px;
+    }
+    .muted{color:var(--muted)}
+
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:60;
+      background:rgba(9,9,11,.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+    .navin{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:.01em;
+      white-space:nowrap;
+    }
+    .brand small{
+      margin-top:7px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.66rem;
+      font-weight:700;
+    }
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:.93rem;
+      color:var(--muted);
+    }
+    .menu a:hover{color:var(--text)}
+    .mobile-menu-btn{
+      display:none;
+      width:44px;height:44px;border-radius:50%;
+      border:1px solid var(--line);
+      background:transparent;color:var(--text);
+      align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+
+    /* BUTTONS */
+    .btn{
+      min-height:50px;
+      padding:0 22px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.07);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      font-weight:850;
+      cursor:pointer;
+      transition:.2s ease;
+      background:var(--gold);
+      color:#17130a;
+      box-shadow:0 10px 30px rgba(223,182,93,.17);
+    }
+    .btn:hover{transform:translateY(-2px);background:var(--gold2)}
+    .btn.ghost{
+      background:transparent;
+      color:var(--text);
+      border-color:var(--line);
+      box-shadow:none;
+    }
+    .btn.ghost:hover{background:rgba(255,255,255,.05)}
+    .btn.wa{
+      background:var(--green);
+      color:#071a0d;
+      box-shadow:0 10px 30px rgba(37,211,102,.14);
+    }
+    .btn.wa:hover{filter:brightness(1.05)}
+
+    /* HERO */
+    .hero{
+      min-height:680px;
+      display:grid;
+      align-items:center;
+      border-bottom:1px solid var(--line);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -160px -240px auto;
+      width:620px;height:620px;border-radius:50%;
+      border:1px solid rgba(223,182,93,.16);
+      box-shadow:
+        0 0 0 95px rgba(223,182,93,.025),
+        0 0 0 190px rgba(223,182,93,.018);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:58px;
+      align-items:center;
+      padding:90px 0 78px;
+    }
+    .hero h1{
+      font-size:clamp(3rem,7.2vw,7.1rem);
+      line-height:.91;
+      letter-spacing:-.055em;
+      margin:0;
+      max-width:860px;
+    }
+    .hero h1 span{display:block;color:var(--gold2)}
+    .lead{
+      color:var(--muted);
+      font-size:clamp(1.08rem,1.7vw,1.3rem);
+      max-width:760px;
+      margin:28px 0 30px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{
+      color:#8e8a82;
+      font-size:.88rem;
+      margin:15px 0 0;
+    }
+    .hero-visual{
+      min-height:480px;
+      border-radius:32px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 72% 28%, rgba(240,216,159,.15), transparent 17%),
+        radial-gradient(circle at 50% 55%, rgba(255,255,255,.06), transparent 22%),
+        linear-gradient(145deg,#17181d,#0d0e11 72%);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      padding:34px;
+    }
+    .orb{
+      position:absolute;border-radius:50%;
+      border:1px solid rgba(223,182,93,.28);
+    }
+    .orb.o1{width:350px;height:350px;right:-80px;top:40px}
+    .orb.o2{width:230px;height:230px;right:12px;top:100px}
+    .orb.o3{width:110px;height:110px;right:72px;top:160px}
+    .spark{
+      position:absolute;width:12px;height:12px;border-radius:50%;
+      background:var(--gold2);
+      box-shadow:0 0 30px rgba(240,216,159,.75);
+    }
+    .s1{top:102px;right:275px}.s2{top:192px;right:168px}.s3{top:327px;right:72px}
+    .visual-copy{
+      font-family:Georgia,serif;
+      font-style:italic;
+      font-size:clamp(1.5rem,2.3vw,2.4rem);
+      line-height:1.08;
+      max-width:430px;
+      color:#f3e8ce;
+      position:relative;
+      z-index:2;
+    }
+
+    /* EXPERIENCES */
+    .section-head{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:50px;
+      align-items:end;
+      margin-bottom:40px;
+    }
+    .section-head p{
+      color:var(--muted);
+      margin:0;
+      font-size:1.08rem;
+      max-width:680px;
+    }
+    .experience-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+    .experience{
+      border:1px solid var(--line);
+      background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+      border-radius:var(--radius);
+      min-height:430px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:.22s ease;
+    }
+    .experience:hover{transform:translateY(-3px);border-color:rgba(223,182,93,.33)}
+    .media-placeholder{
+      min-height:220px;
+      background:
+        linear-gradient(135deg,rgba(223,182,93,.08),transparent 38%),
+        radial-gradient(circle at 78% 22%,rgba(255,255,255,.08),transparent 20%),
+        #111217;
+      border-bottom:1px solid var(--line);
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .media-placeholder::before,
+    .media-placeholder::after{
+      content:"";
+      position:absolute;
+      border:1px solid rgba(223,182,93,.20);
+      border-radius:50%;
+    }
+    .media-placeholder::before{width:190px;height:190px}
+    .media-placeholder::after{width:110px;height:110px}
+    .play{
+      width:64px;height:64px;border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.22);
+      color:var(--text);
+      font-size:1.2rem;
+      position:relative;z-index:2;
+    }
+    .experience-body{
+      padding:27px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .experience h3{
+      font-size:clamp(1.9rem,3.3vw,3rem);
+      line-height:1;
+      letter-spacing:-.04em;
+      margin-bottom:13px;
+    }
+    .experience p{color:var(--muted);margin-bottom:22px}
+    .experience-actions{
+      margin-top:auto;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .text-link{
+      color:var(--gold2);
+      font-weight:800;
+      background:none;border:0;padding:10px 0;cursor:pointer;
+    }
+
+    /* CONTEXTS */
+    .contexts{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.018);
+    }
+    .context-row{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+    }
+    .context-link{
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:16px;
+      border-right:1px solid var(--line);
+      font-weight:850;
+      letter-spacing:.06em;
+      font-size:.83rem;
+      text-transform:uppercase;
+      color:#ded9cf;
+      transition:.2s ease;
+    }
+    .context-link:last-child{border-right:0}
+    .context-link:hover{background:rgba(223,182,93,.07);color:var(--gold2)}
+
+    /* SHOWREEL */
+    .showreel{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:48px;
+      align-items:center;
+    }
+    .showreel-copy p{color:var(--muted);font-size:1.08rem}
+    .video-frame{
+      min-height:430px;
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 70% 30%,rgba(223,182,93,.12),transparent 24%),
+        linear-gradient(145deg,#17181d,#0d0e11);
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .video-frame:hover .play{transform:scale(1.06)}
+    .video-frame .play{transition:.2s ease}
+    .video-label{
+      position:absolute;left:24px;bottom:20px;
+      color:var(--muted);font-size:.86rem;
+    }
+    .after-video{
+      margin-top:22px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .after-video strong{font-size:1.06rem}
+
+    /* WHY */
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:34px;
+    }
+    .why-card{
+      padding:30px 26px;
+      border-top:1px solid var(--line);
+    }
+    .why-card b{
+      display:block;
+      font-size:1.14rem;
+      margin-bottom:10px;
+    }
+    .why-card p{color:var(--muted);margin:0}
+
+    /* ABOUT */
+    .about{
+      display:grid;
+      grid-template-columns:.86fr 1.14fr;
+      gap:56px;
+      align-items:center;
+      border-top:1px solid var(--line);
+    }
+    .about-box{
+      min-height:380px;
+      border-radius:30px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 28% 25%,rgba(223,182,93,.12),transparent 20%),
+        linear-gradient(145deg,#17181d,#0d0e11);
+      position:relative;
+      overflow:hidden;
+    }
+    .about-box::after{
+      content:"FOTO PAOLO";
+      position:absolute;
+      inset:auto 24px 22px auto;
+      color:#77736b;
+      font-size:.72rem;
+      letter-spacing:.16em;
+      font-weight:800;
+    }
+    .about-copy h2{margin-bottom:22px}
+    .about-copy .intro{
+      font-size:clamp(1.55rem,2.6vw,2.5rem);
+      line-height:1.1;
+      color:#f0e6d1;
+      max-width:760px;
+      margin-bottom:18px;
+    }
+    .about-copy .lines{
+      color:var(--muted);
+      font-size:1.07rem;
+    }
+    .about-copy .lines strong{color:var(--text)}
+
+    /* CREDITS */
+    .credits{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+    }
+    .credits-top{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      align-items:flex-end;
+      margin-bottom:36px;
+    }
+    .years{
+      font-size:clamp(2.6rem,6vw,6rem);
+      line-height:.9;
+      font-weight:950;
+      letter-spacing:-.05em;
+      color:var(--gold2);
+    }
+    .years small{
+      display:block;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.78rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .credit-list{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+    }
+    .credit-chip{
+      min-height:86px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:14px;
+      color:#ddd8cf;
+      font-weight:800;
+      font-size:.9rem;
+    }
+    .cinema{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 20px;
+      color:var(--muted);
+    }
+    .cinema strong{color:var(--text)}
+
+    /* FINAL CTA */
+    .final{
+      text-align:center;
+      padding:112px 0 128px;
+      background:radial-gradient(circle at center,rgba(223,182,93,.10),transparent 48%);
+    }
+    .final h2{
+      max-width:980px;
+      margin:0 auto 24px;
+      font-size:clamp(2.8rem,6.8vw,6.6rem);
+      line-height:.92;
+    }
+    .final p{
+      max-width:680px;
+      margin:0 auto 26px;
+      color:var(--muted);
+      font-size:1.1rem;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--line);
+      padding:32px 0 92px;
+      color:#8f8b83;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+    .foot strong{color:#ddd8cf}
+    .social{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .instagram{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#d9d4ca;
+      font-weight:750;
+    }
+    .instagram:hover{color:var(--gold2)}
+
+    /* MOBILE STICKY CTA */
+    .mobile-cta{
+      display:none;
+      position:fixed;
+      left:12px;right:12px;bottom:12px;
+      min-height:56px;
+      border-radius:999px;
+      background:var(--green);
+      color:#071a0d;
+      font-weight:950;
+      z-index:90;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 16px 52px rgba(0,0,0,.42);
+      padding:0 18px;
+    }
+
+    /* MODAL */
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:100;
+      background:rgba(0,0,0,.84);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+    .modal.open{display:flex}
+    .modal-panel{
+      width:min(920px,100%);
+      max-height:90vh;
+      overflow:auto;
+      background:#111217;
+      border:1px solid var(--line);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+    }
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:18px 20px;
+      border-bottom:1px solid var(--line);
+    }
+    .modal-head strong{font-size:1.05rem}
+    .modal-close{
+      width:42px;height:42px;border-radius:50%;
+      border:1px solid var(--line);
+      background:transparent;color:var(--text);
+      cursor:pointer;font-size:1.25rem;
+    }
+    .modal-body{padding:20px}
+    .modal-media{
+      min-height:380px;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 65% 30%,rgba(223,182,93,.13),transparent 24%),
+        linear-gradient(145deg,#18191d,#0d0e11);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:var(--muted);
+      padding:30px;
+    }
+    .modal-media b{display:block;color:var(--text);font-size:1.35rem;margin-bottom:8px}
+
+    /* MOBILE NAV */
+    .mobile-panel{
+      display:none;
+      border-top:1px solid var(--line);
+      background:#0d0e11;
+    }
+    .mobile-panel.open{display:block}
+    .mobile-panel .wrap{
+      padding:12px 0 18px;
+      display:grid;
+      gap:4px;
+    }
+    .mobile-panel a{
+      min-height:46px;
+      display:flex;
+      align-items:center;
+      color:#ddd8cf;
+      border-bottom:1px solid rgba(255,255,255,.055);
+    }
+
+    @media(max-width:980px){
+      .menu a:not(.nav-cta){display:none}
+      .mobile-menu-btn{display:flex}
+      .hero-grid,.section-head,.showreel,.about{grid-template-columns:1fr}
+      .hero-grid{gap:36px}
+      .hero-visual{min-height:360px}
+      .section-head{gap:16px}
+      .showreel{gap:28px}
+      .why-grid{grid-template-columns:1fr}
+      .why-card{padding-left:0;padding-right:0}
+      .credit-list{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media(max-width:760px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}
+      .section{padding:68px 0}
+      .navin{height:66px}
+      .nav-cta{display:none}
+      .hero{min-height:auto}
+      .hero-grid{padding:64px 0 54px}
+      .hero h1{font-size:clamp(3rem,15vw,5.1rem)}
+      .hero-visual{min-height:300px;padding:24px}
+      .experience-grid{grid-template-columns:1fr}
+      .experience{min-height:0}
+      .media-placeholder{min-height:190px}
+      .context-row{grid-template-columns:repeat(2,1fr)}
+      .context-link{min-height:68px;border-bottom:1px solid var(--line)}
+      .context-link:nth-child(2n){border-right:0}
+      .context-link:last-child{
+        grid-column:1/-1;border-bottom:0;border-right:0;
+      }
+      .video-frame{min-height:260px}
+      .credits-top{align-items:flex-start;flex-direction:column}
+      .credit-list{grid-template-columns:1fr 1fr}
+      .mobile-cta{display:flex}
+      footer{padding-bottom:98px}
+      .modal-media{min-height:260px}
+    }
+
+    @media(max-width:420px){
+      .brand small{display:none}
+      .hero h1{font-size:clamp(2.8rem,14vw,4.2rem)}
+      .hero-actions{display:grid}
+      .hero-actions .btn{width:100%}
+      .experience-actions{display:grid}
+      .experience-actions .btn,.experience-actions .text-link{width:100%}
+      .credit-list{grid-template-columns:1fr}
+      .final{padding:88px 0 112px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Paolo Musetti",
+    "jobTitle":"Autore e performer",
+    "url":"https://www.musettishow.it/",
+    "sameAs":["https://www.instagram.com/musettishow/"],
+    "description":"Mentalismo, magia close-up, Bubble Experience e Tarocchi per eventi privati, wedding, corporate, location e teatri."
+  }
+  </script>
+</head>
+
+<body>
+  <nav class="nav" aria-label="Navigazione principale">
+    <div class="wrap navin">
+      <a class="brand" href="#top" aria-label="Paolo Musetti, torna all'inizio">
+        PAOLO MUSETTI
+        <small>Autore · Performer</small>
+      </a>
+
+      <div class="menu">
+        <a href="#esperienze">Esperienze</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#paolo">Paolo</a>
+        <a href="#contatti">Contatti</a>
+        <a class="btn wa nav-cta js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">Verifica disponibilità</a>
+        <button class="mobile-menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Apri menu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-panel" id="mobileMenu">
+      <div class="wrap">
+        <a href="#esperienze">Esperienze</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#paolo">Paolo</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="kicker">Paolo Musetti</div>
+          <h1>Creo stupore. <span>In forme diverse.</span></h1>
+          <p class="lead">
+            Mentalismo, magia close-up, Bubble Experience e Tarocchi per creare momenti
+            che sorprendono, coinvolgono e restano.
+          </p>
+          <div class="hero-actions">
+            <a class="btn wa js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">
+              Verifica disponibilità su WhatsApp
+            </a>
+            <a class="btn ghost" href="#showreel">Guarda lo showreel</a>
+          </div>
+          <p class="hero-note">Eventi privati · Wedding · Corporate · Location · Teatri</p>
+        </div>
+
+        <div class="hero-visual" aria-label="Spazio hero per fotografia di Paolo Musetti">
+          <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+          <div class="spark s1"></div><div class="spark s2"></div><div class="spark s3"></div>
+          <div class="visual-copy">Un artista. Quattro linguaggi. Una sola firma.</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="esperienze">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Le esperienze</div>
+            <h2>Quattro esperienze. Un solo artista.</h2>
+          </div>
+          <p>
+            Scegli ciò che vuoi far vivere al tuo pubblico. Ogni esperienza ha un linguaggio diverso,
+            ma nasce dalla stessa curiosità e dalla stessa attenzione per ciò che accade dal vivo.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience" id="mentalismo">
+            <button class="media-placeholder js-media" type="button" data-title="Mentalismo — ENTANGLED" data-kind="video" aria-label="Apri video Mentalismo">
+              <span class="play">▶</span>
+            </button>
+            <div class="experience-body">
+              <h3>Mentalismo — ENTANGLED</h3>
+              <p>Pensieri, percezioni e connessioni impossibili. Uno spettacolo coinvolgente, dove il pubblico diventa protagonista.</p>
+              <div class="experience-actions">
+                <button class="text-link js-media" type="button" data-title="Mentalismo — ENTANGLED" data-kind="video">Guarda →</button>
+                <a class="btn ghost js-wa" data-topic="Mentalismo — ENTANGLED" href="#">Chiedi disponibilità</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="experience" id="closeup">
+            <button class="media-placeholder js-media" type="button" data-title="Close-up" data-kind="video" aria-label="Apri video Close-up">
+              <span class="play">▶</span>
+            </button>
+            <div class="experience-body">
+              <h3>Close-up</h3>
+              <p>La magia accade tra gli ospiti, a pochi centimetri dai loro occhi. Ideale per aperitivi, ricevimenti, cene ed eventi.</p>
+              <div class="experience-actions">
+                <button class="text-link js-media" type="button" data-title="Close-up" data-kind="video">Guarda →</button>
+                <a class="btn ghost js-wa" data-topic="Magia Close-up" href="#">Chiedi disponibilità</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="experience" id="bubble">
+            <button class="media-placeholder js-media" type="button" data-title="Bubble Experience" data-kind="gallery" aria-label="Apri gallery Bubble Experience">
+              <span class="play">◫</span>
+            </button>
+            <div class="experience-body">
+              <h3>Bubble Experience</h3>
+              <p>Bolle di sapone trasformate in uno spettacolo visuale, poetico e sorprendente. Per wedding, eventi e occasioni speciali.</p>
+              <div class="experience-actions">
+                <button class="text-link js-media" type="button" data-title="Bubble Experience" data-kind="gallery">Guarda →</button>
+                <a class="btn ghost js-wa" data-topic="Bubble Experience" href="#">Chiedi disponibilità</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="experience" id="tarocchi">
+            <button class="media-placeholder js-media" type="button" data-title="Tarocchi" data-kind="video" aria-label="Apri video Tarocchi">
+              <span class="play">▶</span>
+            </button>
+            <div class="experience-body">
+              <h3>Tarocchi</h3>
+              <p>Un incontro personale e coinvolgente con immagini e simboli che aprono conversazioni, curiosità e nuove prospettive.</p>
+              <div class="experience-actions">
+                <button class="text-link js-media" type="button" data-title="Tarocchi" data-kind="video">Guarda →</button>
+                <a class="btn ghost js-wa" data-topic="Tarocchi" href="#">Chiedi disponibilità</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="contexts" aria-label="Tipi di evento">
+      <div class="wrap context-row">
+        <a class="context-link js-wa" data-topic="Evento privato" href="#">Eventi privati</a>
+        <a class="context-link js-wa" data-topic="Wedding" href="#">Wedding</a>
+        <a class="context-link js-wa" data-topic="Evento corporate" href="#">Corporate</a>
+        <a class="context-link js-wa" data-topic="Evento in una location" href="#">Location</a>
+        <a class="context-link js-wa" data-topic="Spettacolo in teatro" href="#">Teatri</a>
+      </div>
+    </div>
+
+    <section class="section" id="showreel">
+      <div class="wrap showreel">
+        <div class="showreel-copy">
+          <div class="kicker">Guardami dal vivo</div>
+          <h2>Un minuto vale più di molte parole.</h2>
+          <p>
+            Il video deve mostrare ritmo, pubblico, reazioni e varietà delle esperienze.
+            Qui inseriremo lo showreel definitivo.
+          </p>
+          <div class="after-video">
+            <strong>Ti immagini qualcosa del genere al tuo evento?</strong>
+            <a class="btn wa js-wa" data-topic="Ho visto lo showreel e vorrei verificare la disponibilità" href="#">Verifica disponibilità</a>
+          </div>
+        </div>
+
+        <button class="video-frame js-media" type="button" data-title="Showreel Paolo Musetti" data-kind="showreel" aria-label="Apri showreel">
+          <span class="play">▶</span>
+          <span class="video-label">SHOWREEL — video da inserire</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">Perché Paolo Musetti</div>
+        <h2>Esperienza, linguaggio, presenza.</h2>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <b>Autore, prima che esecutore</b>
+            <p>Ogni esperienza nasce da una ricerca personale, da idee, tecniche e contaminazioni trasformate in un linguaggio riconoscibile.</p>
+          </div>
+          <div class="why-card">
+            <b>Quattro linguaggi, un solo artista</b>
+            <p>Mentalismo, close-up, bolle e tarocchi permettono di scegliere l’esperienza più adatta al pubblico, al luogo e al momento dell’evento.</p>
+          </div>
+          <div class="why-card">
+            <b>Esperienza davanti al pubblico</b>
+            <p>Teatri, televisione, eventi, wedding e spettacoli dal vivo: l’esperienza serve soprattutto a far funzionare lo spettacolo quando il pubblico è lì.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="paolo">
+      <div class="wrap" style="display:contents">
+        <div class="about-box" aria-label="Spazio per fotografia di Paolo Musetti"></div>
+        <div class="about-copy">
+          <div class="kicker">Paolo Musetti</div>
+          <div class="intro">Da sempre cerco nuovi modi per sorprendere le persone.</div>
+          <div class="lines">
+            Mentalismo, magia, bolle di sapone e tarocchi.<br>
+            <strong>Linguaggi diversi. La stessa curiosità.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section credits">
+      <div class="wrap">
+        <div class="credits-top">
+          <div>
+            <div class="kicker">Dal palco alla TV</div>
+            <h2>Una storia lunga quarant’anni.</h2>
+          </div>
+          <div class="years">40<small>anni di spettacolo</small></div>
+        </div>
+
+        <div class="credit-list" aria-label="Crediti televisivi">
+          <div class="credit-chip">Italia's Got Talent</div>
+          <div class="credit-chip">Amici</div>
+          <div class="credit-chip">Avanti un altro</div>
+          <div class="credit-chip">I soliti ignoti</div>
+          <div class="credit-chip">In famiglia</div>
+        </div>
+
+        <div class="cinema">
+          <strong>Al cinema con Ettore Scola</strong> · <em>Che strano chiamarsi Federico</em>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="contatti">
+      <div class="wrap">
+        <div class="kicker">Parliamo del tuo evento</div>
+        <h2>Che cosa vuoi far accadere al tuo evento?</h2>
+        <p>
+          Raccontami il pubblico, il luogo e l’occasione.
+          Troveremo l’esperienza più adatta.
+        </p>
+        <a class="btn wa js-wa" data-topic="Vorrei raccontarti il mio evento" href="#">Verifica disponibilità su WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div><strong>Paolo Musetti</strong> · Mentalismo · Close-up · Bubble Experience · Tarocchi</div>
+      <div class="social">
+        <a class="instagram" href="https://www.instagram.com/musettishow/" target="_blank" rel="noopener" aria-label="Instagram @musettishow">
+          ◎ @musettishow
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="mobile-cta js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">
+    Verifica disponibilità su WhatsApp
+  </a>
+
+  <div class="modal" id="mediaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <strong id="modalTitle">Media</strong>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Chiudi">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media" id="modalMedia">
+          <div>
+            <b>Contenuto multimediale da inserire</b>
+            <span>La struttura è pronta. Qui collegheremo video o gallery reali.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      CONFIGURAZIONE PRIMA DELLA PUBBLICAZIONE
+      Inserisci SOLO cifre, prefisso internazionale incluso.
+      Esempio: 393331234567
+    */
+    const WHATSAPP_NUMBER = "";
+    const BASE_MESSAGE = "Ciao Paolo, sto organizzando un evento e vorrei capire quale esperienza può essere più adatta.";
+
+    function whatsappUrl(topic){
+      const extra = topic ? `\n\nMi interessa: ${topic}.` : "";
+      const message = encodeURIComponent(BASE_MESSAGE + extra + "\n\nData: \nLuogo: ");
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    }
+
+    document.querySelectorAll(".js-wa").forEach(link => {
+      link.addEventListener("click", event => {
+        const topic = link.dataset.topic || "";
+        if (!WHATSAPP_NUMBER){
+          event.preventDefault();
+          alert("Prima della pubblicazione inserisci il numero WhatsApp nella costante WHATSAPP_NUMBER in fondo al file index.html.");
+          return;
+        }
+        link.href = whatsappUrl(topic);
+        link.target = "_blank";
+        link.rel = "noopener";
+      });
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.textContent = open ? "×" : "☰";
+    });
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      menuBtn.textContent = "☰";
+    }));
+
+    const modal = document.getElementById("mediaModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMedia = document.getElementById("modalMedia");
+    const modalClose = document.getElementById("modalClose");
+
+    function openMedia(title, kind){
+      modalTitle.textContent = title;
+      let label = "Video da inserire";
+      if (kind === "gallery") label = "Gallery foto/video da inserire";
+      if (kind === "showreel") label = "Showreel definitivo da inserire";
+      modalMedia.innerHTML = `<div><b>${label}</b><span>La struttura responsive e la lightbox sono già funzionanti.</span></div>`;
+      modal.classList.add("open");
+      document.body.classList.add("modal-open");
+      modalClose.focus();
+    }
+    function closeMedia(){
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+    document.querySelectorAll(".js-media").forEach(btn => {
+      btn.addEventListener("click", () => openMedia(btn.dataset.title || "Media", btn.dataset.kind || "video"));
+    });
+    modalClose.addEventListener("click", closeMedia);
+    modal.addEventListener("click", e => { if(e.target === modal) closeMedia(); });
+    document.addEventListener("keydown", e => { if(e.key === "Escape" && modal.classList.contains("open")) closeMedia(); });
+  </script>
+</body>
+</html>
