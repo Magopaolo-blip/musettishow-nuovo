@@ -140,7 +140,12 @@
       overflow:hidden;
       border-bottom:1px solid var(--line);
       background:
-        linear-gradient(90deg,rgba(5,12,20,.96) 0%,rgba(5,12,20,.88) 43%,rgba(5,12,20,.28) 70%,rgba(5,12,20,.10) 100%),
+        linear-gradient(90deg,
+          rgba(5,12,20,.70) 0%,
+          rgba(5,12,20,.54) 27%,
+          rgba(5,12,20,.24) 44%,
+          rgba(5,12,20,.08) 62%,
+          rgba(5,12,20,.02) 100%),
         url('assets/hero-paolo.jpg') center right/cover no-repeat,
         linear-gradient(135deg,#08111c,#0c1a29);
     }
@@ -151,7 +156,11 @@
       position:relative;
       z-index:2;
     }
-    .hero-copy{max-width:650px;padding:30px 0}
+    .hero-copy{
+      max-width:650px;
+      padding:30px 0;
+      text-shadow:0 2px 12px rgba(0,0,0,.55);
+    }
     .hero h1{
       font-size:clamp(3.3rem,6.6vw,6.3rem);
       line-height:.9;
@@ -187,7 +196,7 @@
     }
     .center-title{
       text-align:center;
-      margin-bottom:26px;
+      margin-bottom:18px;
       text-transform:uppercase;
       letter-spacing:.13em;
       color:var(--gold2);
@@ -200,69 +209,76 @@
       gap:10px;
     }
     .card{
-      min-height:250px;
       position:relative;
       overflow:hidden;
       border:1px solid var(--line);
-      background:#101923;
+      background:#0d1722;
       isolation:isolate;
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.18) 35%,rgba(0,0,0,.74) 100%),
-        var(--card-image) center/cover no-repeat,
-        linear-gradient(135deg,#111b27,#172635);
-      z-index:-2;
-      transition:transform .3s ease;
-    }
-    .card:hover::before{transform:scale(1.025)}
-    .card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,transparent 50%,rgba(6,10,16,.82));
-      z-index:-1;
-    }
-    .card-content{
-      min-height:300px;
-      padding:20px 18px 18px;
+      min-height:0;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
+    }
+    .card-media{
+      min-height:245px;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18)),
+        var(--card-image) center/cover no-repeat,
+        linear-gradient(135deg,#111b27,#172635);
+    }
+    .card-media::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0;
+      height:32%;
+      background:linear-gradient(180deg,transparent,rgba(4,9,15,.34));
+      pointer-events:none;
+    }
+    .card:hover .card-media{
+      filter:brightness(1.04);
+    }
+    .card .play{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      margin:0;
+      z-index:2;
+    }
+    .card-caption{
+      min-height:72px;
+      padding:12px 14px 11px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
       text-align:center;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,#0d1722,#0b141e);
     }
     .card h3{
-      font-size:1.35rem;
+      font-size:1.05rem;
       text-transform:uppercase;
-      letter-spacing:.03em;
-      margin:0;
-      text-shadow:0 2px 10px rgba(0,0,0,.55);
+      letter-spacing:.035em;
+      margin:0 0 4px;
+      line-height:1.05;
+      color:#fff;
     }
     .card h3 small{
-      display:block;
-      font-size:.66rem;
-      letter-spacing:.18em;
-      margin-top:2px;
-      color:#e4d7b7;
-    }
-    .play{
-      width:56px;height:56px;border-radius:50%;
-      border:1px solid rgba(255,255,255,.66);
-      background:rgba(0,0,0,.26);
-      display:grid;place-items:center;
-      margin:auto;
-      color:white;
-      font-size:1.1rem;
-      backdrop-filter:blur(4px);
+      display:inline-block;
+      font-size:.58rem;
+      letter-spacing:.16em;
+      margin-left:5px;
+      color:var(--gold2);
+      vertical-align:middle;
     }
     .card-bottom{
-      font-size:.74rem;
+      font-size:.64rem;
       text-transform:uppercase;
       font-weight:800;
-      letter-spacing:.06em;
+      letter-spacing:.08em;
+      color:#e6e0d5;
     }
 
     /* CONTEXTS */
@@ -337,6 +353,24 @@
         #111d29;
       display:grid;
       place-items:center;
+    }
+
+
+    .show-video-wrap{
+      padding:0;
+      background:#0d1722;
+      overflow:hidden;
+    }
+    .show-video{
+      width:100%;
+      height:100%;
+      min-height:230px;
+      display:block;
+      object-fit:cover;
+      background:#0d1722;
+    }
+    @media(max-width:720px){
+      .show-video{min-height:220px}
     }
 
     /* WHY */
@@ -630,12 +664,13 @@
       .menu-btn{display:block}
       .hero{
         background:
-          linear-gradient(90deg,rgba(5,12,20,.94),rgba(5,12,20,.78)),
-          url('assets/hero-paolo.jpg') center/cover no-repeat,
+          linear-gradient(90deg,rgba(5,12,20,.78),rgba(5,12,20,.42)),
+          url('assets/hero-paolo.jpg') 64% center/cover no-repeat,
           #0b1622;
       }
       .hero-copy{max-width:720px}
       .cards{grid-template-columns:repeat(2,1fr)}
+      .card-media{min-height:300px}
       .context-grid{grid-template-columns:repeat(5,1fr)}
       .showreel-grid,.about-grid{grid-template-columns:1fr}
       .about-photo{min-height:420px}
@@ -656,7 +691,9 @@
       .hero-actions{display:grid}
       .hero-actions .btn{width:100%}
       .cards{grid-template-columns:1fr}
-      .card,.card-content{min-height:360px}
+      .card{min-height:0}
+      .card-media{min-height:330px}
+      .card-caption{min-height:70px}
       .context-grid{grid-template-columns:repeat(2,1fr)}
       .context{border-bottom:1px solid var(--line)}
       .context:nth-child(2n){border-right:0}
@@ -740,33 +777,41 @@
 
         <div class="cards">
           <article class="card" style="--card-image:url('assets/mentalismo.jpg')">
-            <div class="card-content">
-              <h3>Mentalismo<small>ENTANGLED</small></h3>
-              <button class="play js-media" type="button" data-title="Mentalismo — ENTANGLED">▶</button>
+            <div class="card-media">
+              <button class="play js-media" type="button" data-title="Mentalismo — ENTANGLED" aria-label="Guarda Mentalismo — ENTANGLED">▶</button>
+            </div>
+            <div class="card-caption">
+              <h3>Mentalismo <small>ENTANGLED</small></h3>
               <div class="card-bottom">Guarda il video</div>
             </div>
           </article>
 
           <article class="card" style="--card-image:url('assets/closeup.jpg')">
-            <div class="card-content">
+            <div class="card-media">
+              <button class="play js-media" type="button" data-title="Close-up" aria-label="Guarda Close-up">▶</button>
+            </div>
+            <div class="card-caption">
               <h3>Close-up</h3>
-              <button class="play js-media" type="button" data-title="Close-up">▶</button>
               <div class="card-bottom">Guarda il video</div>
             </div>
           </article>
 
           <article class="card" style="--card-image:url('assets/bubble.jpg')">
-            <div class="card-content">
+            <div class="card-media">
+              <button class="play js-media" type="button" data-title="Bubble Experience" aria-label="Guarda Bubble Experience">▶</button>
+            </div>
+            <div class="card-caption">
               <h3>Bubble Experience</h3>
-              <button class="play js-media" type="button" data-title="Bubble Experience">▶</button>
-              <div class="card-bottom">Guarda il video / Gallery</div>
+              <div class="card-bottom">Video / Gallery</div>
             </div>
           </article>
 
           <article class="card" style="--card-image:url('assets/tarocchi.jpg')">
-            <div class="card-content">
+            <div class="card-media">
+              <button class="play js-media" type="button" data-title="Tarocchi" aria-label="Guarda Tarocchi">▶</button>
+            </div>
+            <div class="card-caption">
               <h3>Tarocchi</h3>
-              <button class="play js-media" type="button" data-title="Tarocchi">▶</button>
               <div class="card-bottom">Guarda il video</div>
             </div>
           </article>
@@ -816,14 +861,17 @@
           <h2>Un minuto vale più di molte parole.</h2>
           <p>Il video deve mostrare ritmo, pubblico, reazioni e varietà delle esperienze.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn js-media" type="button" data-title="Showreel Paolo Musetti">▶ Play showreel</button>
+            <a class="btn" href="#video-showreel">▶ Play showreel</a>
             <a class="btn wa js-wa" data-topic="Ho visto lo showreel e vorrei verificare la disponibilità" href="#">Verifica disponibilità</a>
           </div>
         </div>
 
-        <button class="show-media js-media" type="button" data-title="Showreel Paolo Musetti" aria-label="Apri showreel">
-          <span class="play">▶</span>
-        </button>
+        <div class="show-media show-video-wrap" id="video-showreel">
+          <video class="show-video" controls playsinline preload="metadata" poster="assets/showreel.jpg">
+            <source src="assets/showreel.mp4" type="video/mp4">
+            Il tuo browser non supporta il video.
+          </video>
+        </div>
       </div>
     </section>
 
@@ -911,7 +959,7 @@
         <button class="close" id="closeModal" type="button" aria-label="Chiudi">×</button>
       </div>
       <div class="modal-body">
-        Qui inseriremo il video o la gallery reale.
+        Qui inseriremo il video o la gallery reale delle singole esperienze.
       </div>
     </div>
   </div>
