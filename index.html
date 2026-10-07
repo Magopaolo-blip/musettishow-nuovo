@@ -473,6 +473,49 @@
     }
     .about-copy strong{color:var(--gold2)}
 
+
+    .about-instagram{
+      margin-top:16px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold2);
+      font-weight:850;
+      font-size:.92rem;
+    }
+    .about-instagram:hover{color:#fff}
+
+    .footer-instagram-block{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:4px;
+      text-align:right;
+    }
+    .footer-instagram-kicker{
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.66rem;
+      font-weight:900;
+    }
+    .footer-instagram-main{
+      color:#fff;
+      font-size:1rem;
+      font-weight:900;
+    }
+    .footer-instagram-sub{
+      color:#8f98a2;
+      font-size:.76rem;
+    }
+
+    @media(max-width:720px){
+      .footer-instagram-block{
+        align-items:flex-start;
+        text-align:left;
+      }
+    }
+
     /* CREDITS */
     .credits{
       padding:18px 0 20px;
@@ -606,6 +649,14 @@
       font-weight:850;
       text-decoration:underline;
       text-underline-offset:3px;
+    }
+
+
+    .modal-video{
+      width:100%;
+      max-height:72vh;
+      display:block;
+      background:#000;
     }
 
     /* MOBILE */
@@ -802,7 +853,7 @@
         <div class="cards">
           <article class="card" style="--card-image:url('assets/mentalismo.jpg')">
             <div class="card-media">
-              <button class="play js-media" type="button" data-title="Mentalismo — ENTANGLED" aria-label="Guarda Mentalismo — ENTANGLED">▶</button>
+              <button class="play js-media" type="button" data-title="Mentalismo — ENTANGLED" data-video="assets/Mentalismo.mp4" aria-label="Guarda Mentalismo — ENTANGLED">▶</button>
             </div>
             <div class="card-caption">
               <h3>Mentalismo <small>ENTANGLED</small></h3>
@@ -812,7 +863,7 @@
 
           <article class="card" style="--card-image:url('assets/closeup.jpg')">
             <div class="card-media">
-              <button class="play js-media" type="button" data-title="Close-up" aria-label="Guarda Close-up">▶</button>
+              <button class="play js-media" type="button" data-title="Close-up" data-video="assets/Closeup.mp4" aria-label="Guarda Close-up">▶</button>
             </div>
             <div class="card-caption">
               <h3>Close-up</h3>
@@ -822,7 +873,7 @@
 
           <article class="card" style="--card-image:url('assets/bubble.jpg')">
             <div class="card-media">
-              <button class="play js-media" type="button" data-title="Bubble Experience" aria-label="Guarda Bubble Experience">▶</button>
+              <button class="play js-media" type="button" data-title="Bubble Experience" data-video="assets/Bolle.mp4" aria-label="Guarda Bubble Experience">▶</button>
             </div>
             <div class="card-caption">
               <h3>Bubble Experience</h3>
@@ -832,7 +883,7 @@
 
           <article class="card" style="--card-image:url('assets/tarocchi.jpg')">
             <div class="card-media">
-              <button class="play js-media" type="button" data-title="Tarocchi" aria-label="Guarda Tarocchi">▶</button>
+              <button class="play js-media" type="button" data-title="Tarocchi" data-video="assets/Tarocchi.mp4" aria-label="Guarda Tarocchi">▶</button>
             </div>
             <div class="card-caption">
               <h3>Tarocchi</h3>
@@ -932,6 +983,9 @@
           <p>Da sempre cerco nuovi modi per sorprendere le persone.</p>
           <p>Mentalismo, magia, bolle di sapone e tarocchi.</p>
           <p><strong>Linguaggi diversi. La stessa curiosità.</strong></p>
+          <a class="about-instagram" href="https://www.instagram.com/musettishow/" target="_blank" rel="noopener">
+            ◎ Scopri altri momenti dal vivo su Instagram →
+          </a>
         </div>
       </div>
     </section>
@@ -968,7 +1022,11 @@
   <footer>
     <div class="wrap foot">
       <div>© Paolo Musetti · Mentalismo · Close-up · Bubble Experience · Tarocchi</div>
-      <a class="instagram" href="https://www.instagram.com/musettishow/" target="_blank" rel="noopener">◎ @musettishow</a>
+      <div class="footer-instagram-block">
+        <div class="footer-instagram-kicker">Seguimi su Instagram</div>
+        <a class="footer-instagram-main" href="https://www.instagram.com/musettishow/" target="_blank" rel="noopener">◎ @musettishow</a>
+        <div class="footer-instagram-sub">Video, backstage e momenti dal vivo.</div>
+      </div>
     </div>
   </footer>
 
@@ -982,8 +1040,10 @@
         <strong id="modalTitle">Media</strong>
         <button class="close" id="closeModal" type="button" aria-label="Chiudi">×</button>
       </div>
-      <div class="modal-body">
-        Qui inseriremo il video o la gallery reale delle singole esperienze.
+      <div class="modal-body" id="modalBody">
+        <video class="modal-video" id="experienceVideo" controls playsinline preload="metadata">
+          Il tuo browser non supporta il video.
+        </video>
       </div>
     </div>
   </div>
@@ -1030,10 +1090,12 @@
     const modal = document.getElementById("mediaModal");
     const modalTitle = document.getElementById("modalTitle");
     const closeModal = document.getElementById("closeModal");
+    const experienceVideo = document.getElementById("experienceVideo");
 
-    document.querySelectorAll(".js-media").forEach(btn=>{
+    document.querySelectorAll(".js-media[data-video]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
-        modalTitle.textContent = btn.dataset.title || "Media";
+        modalTitle.textContent = btn.dataset.title || "Video";
+        experienceVideo.src = btn.dataset.video;
         modal.classList.add("open");
         document.body.classList.add("modal-open");
         closeModal.focus();
@@ -1041,6 +1103,9 @@
     });
 
     function closeMedia(){
+      if (!experienceVideo.paused) experienceVideo.pause();
+      experienceVideo.removeAttribute("src");
+      experienceVideo.load();
       modal.classList.remove("open");
       document.body.classList.remove("modal-open");
     }
