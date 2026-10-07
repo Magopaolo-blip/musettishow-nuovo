@@ -39,7 +39,7 @@
     button{font:inherit}
     img{max-width:100%;display:block}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .section{padding:52px 0}
+    .section{padding:42px 0}
     .eyebrow{
       text-transform:uppercase;
       letter-spacing:.16em;
@@ -52,7 +52,7 @@
     h2{
       font-size:clamp(2rem,4vw,3.5rem);
       line-height:1;
-      margin-bottom:18px;
+      margin-bottom:14px;
       letter-spacing:-.03em;
     }
     .muted{color:var(--muted)}
@@ -135,7 +135,7 @@
 
     /* HERO */
     .hero{
-      min-height:500px;
+      min-height:445px;
       position:relative;
       overflow:hidden;
       border-bottom:1px solid var(--line);
@@ -145,13 +145,13 @@
         linear-gradient(135deg,#08111c,#0c1a29);
     }
     .hero-inner{
-      min-height:500px;
+      min-height:445px;
       display:flex;
       align-items:center;
       position:relative;
       z-index:2;
     }
-    .hero-copy{max-width:650px;padding:42px 0}
+    .hero-copy{max-width:650px;padding:30px 0}
     .hero h1{
       font-size:clamp(3.3rem,6.6vw,6.3rem);
       line-height:.9;
@@ -200,7 +200,7 @@
       gap:10px;
     }
     .card{
-      min-height:300px;
+      min-height:250px;
       position:relative;
       overflow:hidden;
       border:1px solid var(--line);
@@ -328,7 +328,7 @@
     }
     .showreel p{color:var(--muted);font-size:1.05rem}
     .show-media{
-      min-height:260px;
+      min-height:230px;
       position:relative;
       border:1px solid var(--line);
       background:
@@ -360,7 +360,7 @@
     }
     .why-item{
       text-align:center;
-      padding:12px 22px 8px;
+      padding:8px 22px 6px;
       border-right:1px solid var(--line);
     }
     .why-item:last-child{border-right:0}
@@ -396,7 +396,7 @@
         #111d29;
     }
     .about-copy{
-      padding:36px 38px;
+      padding:28px 34px;
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -473,7 +473,7 @@
 
     /* CTA */
     .final{
-      min-height:240px;
+      min-height:205px;
       display:flex;
       align-items:center;
       text-align:center;
@@ -482,7 +482,7 @@
         url('assets/final-bg.jpg') center/cover no-repeat,
         #17100b;
     }
-    .final-inner{padding:38px 0}
+    .final-inner{padding:28px 0}
     .final .eyebrow{margin-bottom:10px}
     .final h2{
       max-width:830px;
@@ -512,6 +512,43 @@
       flex-wrap:wrap;
     }
     .instagram{color:#f0ece5;font-weight:800}
+
+
+    .catalog-row{
+      display:flex;
+      justify-content:center;
+      margin-top:20px;
+    }
+    .catalog-link{
+      min-height:44px;
+      padding:0 18px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:1px solid rgba(216,174,86,.38);
+      color:var(--gold2);
+      font-weight:850;
+      font-size:.88rem;
+      background:rgba(216,174,86,.04);
+      transition:.2s ease;
+    }
+    .catalog-link:hover{
+      background:rgba(216,174,86,.09);
+      transform:translateY(-1px);
+    }
+    .catalog-small{
+      margin-top:14px;
+      font-size:.9rem;
+      color:#e9dfca;
+    }
+    .catalog-small a{
+      color:var(--gold2);
+      font-weight:850;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
 
     /* MOBILE */
     .mobile-panel{
@@ -608,12 +645,12 @@
 
     @media(max-width:720px){
       .wrap{width:min(var(--max),calc(100% - 28px))}
-      .section{padding:40px 0}
+      .section{padding:34px 0}
       .nav{min-height:64px}
       .nav-wa{display:none!important}
-      .hero{min-height:540px}
-      .hero-inner{min-height:540px}
-      .hero-copy{padding:50px 0 42px}
+      .hero{min-height:490px}
+      .hero-inner{min-height:490px}
+      .hero-copy{padding:36px 0 30px}
       .hero h1{font-size:clamp(3rem,15vw,4.7rem)}
       .hero p{font-size:1rem}
       .hero-actions{display:grid}
@@ -630,7 +667,7 @@
       .why-item{border-right:0;border-bottom:1px solid var(--line)}
       .why-item:last-child{border-bottom:0}
       .about-copy{padding:36px 24px}
-      .about-photo{min-height:300px}
+      .about-photo{min-height:250px}
       .credit-row{grid-template-columns:1fr 1fr}
       .sticky-wa{display:flex}
       footer{padding-bottom:92px}
@@ -733,6 +770,12 @@
               <div class="card-bottom">Guarda il video</div>
             </div>
           </article>
+        </div>
+
+        <div class="catalog-row">
+          <a class="catalog-link" href="https://wa.me/c/393282924284" target="_blank" rel="noopener">
+            Vedi spettacoli e prezzi su WhatsApp
+          </a>
         </div>
       </div>
     </section>
@@ -843,6 +886,9 @@
         <h2>Raccontami il pubblico, il luogo e l’occasione.</h2>
         <p>Troveremo l’esperienza più adatta.</p>
         <a class="btn wa js-wa" data-topic="Vorrei raccontarti il mio evento" href="#">Scrivimi su WhatsApp</a>
+        <div class="catalog-small">
+          Preferisci vedere prima le proposte? <a href="https://wa.me/c/393282924284" target="_blank" rel="noopener">Apri il catalogo WhatsApp</a>
+        </div>
       </div>
     </section>
   </main>
