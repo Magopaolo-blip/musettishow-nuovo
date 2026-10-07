@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paolo Musetti | Mentalismo, Close-up, Bubble Experience e Tarocchi</title>
+  <meta name="description" content="Paolo Musetti: mentalismo, magia close-up, Bubble Experience e Tarocchi per eventi privati, wedding, corporate, location e teatri.">
+  <meta name="theme-color" content="#09111d">
+
+  <style>
+    :root{
+      --bg:#07101a;
+      --bg2:#0b1623;
+      --bg3:#0f1c2b;
+      --panel:#0f1926;
+      --panel2:#121f2e;
+      --text:#f4f2ed;
+      --muted:#b8bcc4;
+      --line:rgba(255,255,255,.12);
+      --gold:#d8ae56;
+      --gold2:#f0d18e;
+      --green:#38c96b;
+      --max:1220px;
+      --radius:18px;
+      --shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+    body.modal-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .section{padding:72px 0}
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.76rem;
+      color:var(--gold2);
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    h1,h2,h3,p{margin-top:0}
+    h2{
+      font-size:clamp(2rem,4vw,3.5rem);
+      line-height:1;
+      margin-bottom:18px;
+      letter-spacing:-.03em;
+    }
+    .muted{color:var(--muted)}
+
+    /* HEADER */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(6,14,24,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .logo{
+      font-size:1.1rem;
+      font-weight:900;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+    .logo small{
+      display:block;
+      margin-top:4px;
+      font-size:.62rem;
+      letter-spacing:.16em;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      color:#e2e4e8;
+      font-size:.86rem;
+      font-weight:700;
+    }
+    .navlinks a:hover{color:var(--gold2)}
+    .menu-btn{
+      display:none;
+      width:44px;height:44px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:transparent;
+      color:white;
+      cursor:pointer;
+    }
+
+    /* BUTTONS */
+    .btn{
+      min-height:48px;
+      padding:0 20px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:1px solid transparent;
+      background:var(--gold2);
+      color:#15130f;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.dark{
+      background:transparent;
+      color:var(--text);
+      border-color:var(--line);
+    }
+    .btn.wa{
+      background:var(--green);
+      color:#06160d;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:610px;
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(90deg,rgba(5,12,20,.96) 0%,rgba(5,12,20,.88) 43%,rgba(5,12,20,.28) 70%,rgba(5,12,20,.10) 100%),
+        url('assets/hero-paolo.jpg') center right/cover no-repeat,
+        linear-gradient(135deg,#08111c,#0c1a29);
+    }
+    .hero-inner{
+      min-height:610px;
+      display:flex;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+    .hero-copy{max-width:650px;padding:58px 0}
+    .hero h1{
+      font-size:clamp(3.3rem,6.6vw,6.3rem);
+      line-height:.9;
+      letter-spacing:-.05em;
+      margin-bottom:16px;
+    }
+    .hero h1 .name{
+      display:block;
+      font-size:.66em;
+      letter-spacing:-.025em;
+      margin-bottom:12px;
+    }
+    .hero h1 .claim{
+      display:block;
+      color:var(--gold2);
+      font-size:.43em;
+      line-height:1.1;
+      letter-spacing:.01em;
+      font-weight:600;
+    }
+    .hero p{
+      color:#e4e4e0;
+      font-size:1.13rem;
+      max-width:590px;
+      margin-bottom:24px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* EXPERIENCES */
+    .experiences{
+      background:#07101a;
+      border-bottom:1px solid var(--line);
+    }
+    .center-title{
+      text-align:center;
+      margin-bottom:26px;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      color:var(--gold2);
+      font-size:1.05rem;
+      font-weight:900;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+    .card{
+      min-height:360px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#101923;
+      isolation:isolate;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.18) 35%,rgba(0,0,0,.74) 100%),
+        var(--card-image) center/cover no-repeat,
+        linear-gradient(135deg,#111b27,#172635);
+      z-index:-2;
+      transition:transform .3s ease;
+    }
+    .card:hover::before{transform:scale(1.025)}
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent 50%,rgba(6,10,16,.82));
+      z-index:-1;
+    }
+    .card-content{
+      min-height:360px;
+      padding:20px 18px 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      text-align:center;
+    }
+    .card h3{
+      font-size:1.35rem;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      margin:0;
+      text-shadow:0 2px 10px rgba(0,0,0,.55);
+    }
+    .card h3 small{
+      display:block;
+      font-size:.66rem;
+      letter-spacing:.18em;
+      margin-top:2px;
+      color:#e4d7b7;
+    }
+    .play{
+      width:56px;height:56px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.66);
+      background:rgba(0,0,0,.26);
+      display:grid;place-items:center;
+      margin:auto;
+      color:white;
+      font-size:1.1rem;
+      backdrop-filter:blur(4px);
+    }
+    .card-bottom{
+      font-size:.74rem;
+      text-transform:uppercase;
+      font-weight:800;
+      letter-spacing:.06em;
+    }
+
+    /* CONTEXTS */
+    .contexts{
+      background:
+        linear-gradient(rgba(4,10,18,.80),rgba(4,10,18,.86)),
+        url('assets/contexts-bg.jpg') center/cover no-repeat,
+        #0a1420;
+      border-bottom:1px solid var(--line);
+      padding:22px 0 24px;
+    }
+    .contexts-title{
+      text-align:center;
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-weight:900;
+      margin-bottom:16px;
+      font-size:.82rem;
+    }
+    .context-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:0;
+    }
+    .context{
+      min-height:106px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:11px;
+      text-align:center;
+      border-right:1px solid var(--line);
+      color:#f2eee5;
+      font-size:.82rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+    .context:last-child{border-right:0}
+    .context svg{
+      width:34px;height:34px;
+      stroke:var(--gold2);
+      fill:none;
+      stroke-width:1.6;
+    }
+
+    /* SHOWREEL */
+    .showreel{
+      background:#07101a;
+      border-bottom:1px solid var(--line);
+    }
+    .showreel-grid{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      align-items:center;
+      gap:34px;
+    }
+    .showreel h2{
+      font-size:clamp(2.5rem,4.5vw,4.2rem);
+      margin-bottom:12px;
+    }
+    .showreel p{color:var(--muted);font-size:1.05rem}
+    .show-media{
+      min-height:330px;
+      position:relative;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(rgba(5,11,18,.18),rgba(5,11,18,.25)),
+        url('assets/showreel.jpg') center/cover no-repeat,
+        #111d29;
+      display:grid;
+      place-items:center;
+    }
+
+    /* WHY */
+    .why{
+      background:#08111b;
+      border-bottom:1px solid var(--line);
+    }
+    .why-title{
+      text-align:center;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:#e7e1d6;
+      margin-bottom:26px;
+      font-weight:800;
+      font-size:.82rem;
+    }
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:0;
+    }
+    .why-item{
+      text-align:center;
+      padding:22px 26px 16px;
+      border-right:1px solid var(--line);
+    }
+    .why-item:last-child{border-right:0}
+    .why-icon{
+      color:var(--gold);
+      font-size:2rem;
+      line-height:1;
+      margin-bottom:12px;
+    }
+    .why-item h3{
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      margin-bottom:8px;
+    }
+    .why-item p{color:var(--muted);font-size:.92rem;margin-bottom:0}
+
+    /* ABOUT */
+    .about{
+      background:#07101a;
+      border-bottom:1px solid var(--line);
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      align-items:stretch;
+    }
+    .about-photo{
+      min-height:360px;
+      background:
+        linear-gradient(rgba(5,10,18,.10),rgba(5,10,18,.20)),
+        url('assets/paolo.jpg') center/cover no-repeat,
+        #111d29;
+    }
+    .about-copy{
+      padding:56px 48px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:linear-gradient(135deg,#09131f,#0c1825);
+    }
+    .about-copy h2{
+      font-size:2.2rem;
+      margin-bottom:16px;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+    }
+    .about-copy p{
+      font-size:1.05rem;
+      color:#e2e2de;
+      max-width:640px;
+      margin-bottom:8px;
+    }
+    .about-copy strong{color:var(--gold2)}
+
+    /* CREDITS */
+    .credits{
+      padding:28px 0 32px;
+      background:
+        linear-gradient(rgba(8,18,31,.93),rgba(8,18,31,.93)),
+        url('assets/credits-bg.jpg') center/cover no-repeat,
+        #0a1623;
+      border-bottom:1px solid var(--line);
+    }
+    .credits-title{
+      text-align:center;
+      text-transform:uppercase;
+      color:var(--gold2);
+      letter-spacing:.13em;
+      font-size:1.05rem;
+      font-weight:900;
+      margin-bottom:3px;
+    }
+    .credits-sub{
+      text-align:center;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.8rem;
+      margin-bottom:18px;
+      color:#f0ece3;
+    }
+    .credit-row{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      align-items:center;
+      gap:14px;
+    }
+    .credit{
+      min-height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#f5f2eb;
+      font-weight:900;
+      font-size:.84rem;
+    }
+    .credit.cinema{
+      border-left:1px solid var(--line);
+      padding-left:18px;
+      font-size:.76rem;
+      font-weight:700;
+      line-height:1.25;
+    }
+    .credit.cinema strong{display:block;font-size:.82rem}
+
+    /* CTA */
+    .final{
+      min-height:340px;
+      display:flex;
+      align-items:center;
+      text-align:center;
+      background:
+        linear-gradient(rgba(50,23,5,.50),rgba(13,10,8,.72)),
+        url('assets/final-bg.jpg') center/cover no-repeat,
+        #17100b;
+    }
+    .final-inner{padding:58px 0}
+    .final .eyebrow{margin-bottom:10px}
+    .final h2{
+      max-width:830px;
+      margin:0 auto 14px;
+      font-size:clamp(2.3rem,4.4vw,4.1rem);
+      line-height:1;
+    }
+    .final p{
+      max-width:680px;
+      margin:0 auto 22px;
+      color:#f0e9de;
+      font-size:1.03rem;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:24px 0 34px;
+      background:#050b12;
+      color:#8f98a2;
+      font-size:.82rem;
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .instagram{color:#f0ece5;font-weight:800}
+
+    /* MOBILE */
+    .mobile-panel{
+      display:none;
+      background:#07101a;
+      border-top:1px solid var(--line);
+    }
+    .mobile-panel.open{display:block}
+    .mobile-panel .wrap{
+      display:grid;
+      gap:0;
+      padding:8px 0 14px;
+    }
+    .mobile-panel a{
+      min-height:46px;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .sticky-wa{
+      display:none;
+      position:fixed;
+      left:12px;right:12px;bottom:12px;
+      z-index:70;
+      min-height:56px;
+      border-radius:999px;
+      background:var(--green);
+      color:#06160d;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      box-shadow:0 12px 40px rgba(0,0,0,.40);
+    }
+
+    /* MODAL */
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:90;
+      background:rgba(0,0,0,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .modal.open{display:flex}
+    .modal-card{
+      width:min(900px,100%);
+      background:#0a1420;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+    }
+    .close{
+      width:40px;height:40px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:transparent;
+      color:white;
+      cursor:pointer;
+    }
+    .modal-body{
+      min-height:380px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:var(--muted);
+      padding:28px;
+    }
+
+    @media(max-width:980px){
+      .navlinks a:not(.nav-wa){display:none}
+      .menu-btn{display:block}
+      .hero{
+        background:
+          linear-gradient(90deg,rgba(5,12,20,.94),rgba(5,12,20,.78)),
+          url('assets/hero-paolo.jpg') center/cover no-repeat,
+          #0b1622;
+      }
+      .hero-copy{max-width:720px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .context-grid{grid-template-columns:repeat(5,1fr)}
+      .showreel-grid,.about-grid{grid-template-columns:1fr}
+      .about-photo{min-height:420px}
+      .credit-row{grid-template-columns:repeat(3,1fr)}
+      .credit.cinema{border-left:0}
+    }
+
+    @media(max-width:720px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}
+      .section{padding:52px 0}
+      .nav{min-height:64px}
+      .nav-wa{display:none!important}
+      .hero{min-height:540px}
+      .hero-inner{min-height:540px}
+      .hero-copy{padding:50px 0 42px}
+      .hero h1{font-size:clamp(3rem,15vw,4.7rem)}
+      .hero p{font-size:1rem}
+      .hero-actions{display:grid}
+      .hero-actions .btn{width:100%}
+      .cards{grid-template-columns:1fr}
+      .card,.card-content{min-height:360px}
+      .context-grid{grid-template-columns:repeat(2,1fr)}
+      .context{border-bottom:1px solid var(--line)}
+      .context:nth-child(2n){border-right:0}
+      .context:last-child{grid-column:1/-1;border-bottom:0}
+      .showreel-grid{gap:22px}
+      .show-media{min-height:240px}
+      .why-grid{grid-template-columns:1fr}
+      .why-item{border-right:0;border-bottom:1px solid var(--line)}
+      .why-item:last-child{border-bottom:0}
+      .about-copy{padding:36px 24px}
+      .about-photo{min-height:300px}
+      .credit-row{grid-template-columns:1fr 1fr}
+      .sticky-wa{display:flex}
+      footer{padding-bottom:92px}
+    }
+
+    @media(max-width:420px){
+      .credit-row{grid-template-columns:1fr}
+      .logo small{display:none}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *{transition:none!important}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="logo" href="#top">
+        PAOLO MUSETTI
+        <small>Autore · Performer</small>
+      </a>
+
+      <nav class="navlinks" aria-label="Navigazione principale">
+        <a href="#esperienze">Esperienze</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#paolo">Chi sono</a>
+        <a href="#contatti">Contatti</a>
+        <a class="btn wa nav-wa js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">Scrivimi</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Apri menu" aria-expanded="false">☰</button>
+      </nav>
+    </div>
+
+    <div class="mobile-panel" id="mobileMenu">
+      <div class="wrap">
+        <a href="#esperienze">Esperienze</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#paolo">Chi sono</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>
+            <span class="name">PAOLO MUSETTI</span>
+            <span class="claim">Creo stupore. In forme diverse.</span>
+          </h1>
+          <p>
+            Mentalismo, magia close-up, Bubble Experience e Tarocchi per creare momenti
+            che sorprendono, coinvolgono e restano.
+          </p>
+          <div class="hero-actions">
+            <a class="btn dark" href="#showreel">▶ Guardami dal vivo</a>
+            <a class="btn" href="#esperienze">Scopri le esperienze ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experiences" id="esperienze">
+      <div class="wrap">
+        <div class="center-title">Quattro esperienze. Un solo artista.</div>
+
+        <div class="cards">
+          <article class="card" style="--card-image:url('assets/mentalismo.jpg')">
+            <div class="card-content">
+              <h3>Mentalismo<small>ENTANGLED</small></h3>
+              <button class="play js-media" type="button" data-title="Mentalismo — ENTANGLED">▶</button>
+              <div class="card-bottom">Guarda il video</div>
+            </div>
+          </article>
+
+          <article class="card" style="--card-image:url('assets/closeup.jpg')">
+            <div class="card-content">
+              <h3>Close-up</h3>
+              <button class="play js-media" type="button" data-title="Close-up">▶</button>
+              <div class="card-bottom">Guarda il video</div>
+            </div>
+          </article>
+
+          <article class="card" style="--card-image:url('assets/bubble.jpg')">
+            <div class="card-content">
+              <h3>Bubble Experience</h3>
+              <button class="play js-media" type="button" data-title="Bubble Experience">▶</button>
+              <div class="card-bottom">Guarda il video / Gallery</div>
+            </div>
+          </article>
+
+          <article class="card" style="--card-image:url('assets/tarocchi.jpg')">
+            <div class="card-content">
+              <h3>Tarocchi</h3>
+              <button class="play js-media" type="button" data-title="Tarocchi">▶</button>
+              <div class="card-bottom">Guarda il video</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contexts">
+      <div class="wrap">
+        <div class="contexts-title">Per ogni occasione</div>
+
+        <div class="context-grid">
+          <a class="context js-wa" data-topic="Evento privato" href="#">
+            <svg viewBox="0 0 48 48"><circle cx="18" cy="18" r="6"/><circle cx="30" cy="18" r="6"/><path d="M8 38c2-8 8-12 16-12s14 4 16 12"/></svg>
+            Eventi privati
+          </a>
+          <a class="context js-wa" data-topic="Wedding" href="#">
+            <svg viewBox="0 0 48 48"><circle cx="19" cy="24" r="10"/><circle cx="29" cy="24" r="10"/></svg>
+            Wedding
+          </a>
+          <a class="context js-wa" data-topic="Evento corporate" href="#">
+            <svg viewBox="0 0 48 48"><path d="M10 38V16h12v22M26 38V8h12v30M14 21h4M14 27h4M30 14h4M30 20h4M30 26h4"/></svg>
+            Corporate
+          </a>
+          <a class="context js-wa" data-topic="Evento in una location" href="#">
+            <svg viewBox="0 0 48 48"><path d="M12 12l10 14M36 12L26 26M17 38l5-12M31 38l-5-12"/><path d="M9 10h8M31 10h8"/></svg>
+            Location
+          </a>
+          <a class="context js-wa" data-topic="Spettacolo in teatro" href="#">
+            <svg viewBox="0 0 48 48"><path d="M8 10h32v28H8z"/><path d="M8 18h32M16 38V18M32 38V18"/></svg>
+            Teatri
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showreel" id="showreel">
+      <div class="wrap showreel-grid">
+        <div>
+          <div class="eyebrow">Guardami dal vivo</div>
+          <h2>Un minuto vale più di molte parole.</h2>
+          <p>Il video deve mostrare ritmo, pubblico, reazioni e varietà delle esperienze.</p>
+          <button class="btn js-media" type="button" data-title="Showreel Paolo Musetti">▶ Play showreel</button>
+        </div>
+
+        <button class="show-media js-media" type="button" data-title="Showreel Paolo Musetti" aria-label="Apri showreel">
+          <span class="play">▶</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section why">
+      <div class="wrap">
+        <div class="why-title">Perché Paolo Musetti</div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">✒</div>
+            <h3>Autore, prima che esecutore</h3>
+            <p>Creo le mie performance, le adatto al contesto e al pubblico.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">◎</div>
+            <h3>Quattro linguaggi, un solo artista</h3>
+            <p>Mentalismo, magia, bolle di sapone e tarocchi in un’unica visione.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">♙</div>
+            <h3>Esperienza davanti al pubblico</h3>
+            <p>Quarant’anni di spettacoli in TV, nei teatri e negli eventi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="paolo">
+      <div class="wrap about-grid">
+        <div class="about-photo" aria-label="Foto di Paolo Musetti"></div>
+        <div class="about-copy">
+          <div class="eyebrow">Paolo Musetti</div>
+          <h2>Paolo Musetti</h2>
+          <p>Da sempre cerco nuovi modi per sorprendere le persone.</p>
+          <p>Mentalismo, magia, bolle di sapone e tarocchi.</p>
+          <p><strong>Linguaggi diversi. La stessa curiosità.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="credits">
+      <div class="wrap">
+        <div class="credits-title">Dal palco alla TV</div>
+        <div class="credits-sub">40 anni di spettacolo</div>
+
+        <div class="credit-row">
+          <div class="credit">Italia's Got Talent</div>
+          <div class="credit">Amici</div>
+          <div class="credit">Avanti un altro</div>
+          <div class="credit">I soliti ignoti</div>
+          <div class="credit">In famiglia</div>
+          <div class="credit cinema">
+            <div>
+              <strong>Al cinema con Ettore Scola</strong>
+              “Che strano chiamarsi Federico”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="contatti">
+      <div class="wrap final-inner">
+        <div class="eyebrow">Che cosa vuoi far accadere al tuo evento?</div>
+        <h2>Raccontami il pubblico, il luogo e l’occasione.</h2>
+        <p>Troveremo l’esperienza più adatta.</p>
+        <a class="btn wa js-wa" data-topic="Vorrei raccontarti il mio evento" href="#">Scrivimi su WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© Paolo Musetti · Mentalismo · Close-up · Bubble Experience · Tarocchi</div>
+      <a class="instagram" href="https://www.instagram.com/musettishow/" target="_blank" rel="noopener">◎ @musettishow</a>
+    </div>
+  </footer>
+
+  <a class="sticky-wa js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">
+    Verifica disponibilità su WhatsApp
+  </a>
+
+  <div class="modal" id="mediaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <strong id="modalTitle">Media</strong>
+        <button class="close" id="closeModal" type="button" aria-label="Chiudi">×</button>
+      </div>
+      <div class="modal-body">
+        Qui inseriremo il video o la gallery reale.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // INSERISCI QUI IL NUMERO WHATSAPP, SOLO CIFRE E PREFISSO INTERNAZIONALE.
+    // Esempio: const WHATSAPP_NUMBER = "393331234567";
+    const WHATSAPP_NUMBER = "";
+
+    const BASE_MESSAGE = "Ciao Paolo, sto organizzando un evento e vorrei capire quale esperienza può essere più adatta.";
+
+    function waUrl(topic){
+      const extra = topic ? `\n\nMi interessa: ${topic}.` : "";
+      const msg = encodeURIComponent(BASE_MESSAGE + extra + "\n\nData: \nLuogo: ");
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+
+    document.querySelectorAll(".js-wa").forEach(link=>{
+      link.addEventListener("click", e=>{
+        if(!WHATSAPP_NUMBER){
+          e.preventDefault();
+          alert("Inserisci prima il numero WhatsApp nella costante WHATSAPP_NUMBER in fondo a index.html.");
+          return;
+        }
+        link.href = waUrl(link.dataset.topic || "");
+        link.target = "_blank";
+        link.rel = "noopener";
+      });
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", ()=>{
+      const open = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.textContent = open ? "×" : "☰";
+    });
+    mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+      mobileMenu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      menuBtn.textContent="☰";
+    }));
+
+    const modal = document.getElementById("mediaModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".js-media").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        modalTitle.textContent = btn.dataset.title || "Media";
+        modal.classList.add("open");
+        document.body.classList.add("modal-open");
+        closeModal.focus();
+      });
+    });
+
+    function closeMedia(){
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+    closeModal.addEventListener("click", closeMedia);
+    modal.addEventListener("click", e=>{ if(e.target===modal) closeMedia(); });
+    document.addEventListener("keydown", e=>{ if(e.key==="Escape" && modal.classList.contains("open")) closeMedia(); });
+  </script>
+</body>
+</html>
