@@ -141,12 +141,13 @@
       border-bottom:1px solid var(--line);
       background:
         linear-gradient(90deg,
-          rgba(5,12,20,.70) 0%,
-          rgba(5,12,20,.54) 27%,
-          rgba(5,12,20,.24) 44%,
-          rgba(5,12,20,.08) 62%,
-          rgba(5,12,20,.02) 100%),
-        url('assets/hero-paolo.jpg') center right/cover no-repeat,
+          rgba(5,12,20,.18) 0%,
+          rgba(5,12,20,.12) 22%,
+          rgba(5,12,20,.18) 40%,
+          rgba(5,12,20,.38) 62%,
+          rgba(5,12,20,.62) 82%,
+          rgba(5,12,20,.78) 100%),
+        url('assets/hero-paolo.jpg') 58% center/cover no-repeat,
         linear-gradient(135deg,#08111c,#0c1a29);
     }
     .hero-inner{
@@ -158,8 +159,13 @@
     }
     .hero-copy{
       max-width:650px;
-      padding:30px 0;
-      text-shadow:0 2px 12px rgba(0,0,0,.55);
+      padding:24px 26px;
+      text-shadow:0 2px 10px rgba(0,0,0,.34);
+      background:linear-gradient(135deg,rgba(5,12,20,.58),rgba(5,12,20,.36));
+      border:1px solid rgba(255,255,255,.06);
+      backdrop-filter:blur(2px);
+      border-radius:22px;
+      box-shadow:0 14px 34px rgba(0,0,0,.18);
     }
     .hero h1{
       font-size:clamp(3.3rem,6.6vw,6.3rem);
@@ -664,8 +670,8 @@
       .menu-btn{display:block}
       .hero{
         background:
-          linear-gradient(90deg,rgba(5,12,20,.78),rgba(5,12,20,.42)),
-          url('assets/hero-paolo.jpg') 64% center/cover no-repeat,
+          linear-gradient(180deg,rgba(5,12,20,.34),rgba(5,12,20,.48)),
+          url('assets/hero-paolo.jpg') 60% center/cover no-repeat,
           #0b1622;
       }
       .hero-copy{max-width:720px}
@@ -685,7 +691,7 @@
       .nav-wa{display:none!important}
       .hero{min-height:490px}
       .hero-inner{min-height:490px}
-      .hero-copy{padding:36px 0 30px}
+      .hero-copy{padding:22px 18px 20px}
       .hero h1{font-size:clamp(3rem,15vw,4.7rem)}
       .hero p{font-size:1rem}
       .hero-actions{display:grid}
@@ -867,7 +873,7 @@
         </div>
 
         <div class="show-media show-video-wrap" id="video-showreel">
-          <video class="show-video" controls playsinline preload="metadata" poster="assets/showreel.jpg">
+          <video class="show-video" controls playsinline preload="metadata" poster="assets/showreel-poster.png">
             <source src="assets/showreel.mp4" type="video/mp4">
             Il tuo browser non supporta il video.
           </video>
