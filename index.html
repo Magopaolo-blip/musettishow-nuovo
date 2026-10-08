@@ -806,6 +806,26 @@
       .logo small{display:none}
     }
 
+    /* MOBILE REFINEMENT — showreel + sticky WhatsApp */
+    @media(max-width:720px){
+      .showreel{padding-top:42px;padding-bottom:34px}
+      .showreel-grid{grid-template-columns:1fr;gap:24px}
+      .showreel h2{font-size:clamp(2.65rem,12vw,4rem);line-height:.98;margin-bottom:0}
+      .show-media{min-height:0}
+      .show-video{min-height:0;height:auto;aspect-ratio:16/9;object-fit:contain}
+      .sticky-wa{
+        left:50%;right:auto;bottom:12px;transform:translateX(-50%);
+        width:calc(100% - 44px);max-width:520px;
+        min-height:58px;padding:14px 20px;border-radius:999px;
+        font-size:1rem;box-shadow:0 10px 30px rgba(0,0,0,.34);
+      }
+      footer{padding-bottom:86px}
+    }
+
+    @media(max-width:420px){
+      .sticky-wa{width:calc(100% - 32px);min-height:56px;font-size:.96rem}
+    }
+
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *{transition:none!important}
@@ -950,11 +970,7 @@
         <div>
           <div class="eyebrow">Guardami dal vivo</div>
           <h2>Un minuto vale più di molte parole.</h2>
-          <p>Il video deve mostrare ritmo, pubblico, reazioni e varietà delle esperienze.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" href="#video-showreel">▶ Play showreel</a>
-            <a class="btn wa js-wa" data-topic="Ho visto lo showreel e vorrei verificare la disponibilità" href="#">Verifica disponibilità</a>
-          </div>
+
         </div>
 
         <div class="show-media show-video-wrap" id="video-showreel">
