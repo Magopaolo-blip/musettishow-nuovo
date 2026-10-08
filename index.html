@@ -830,6 +830,42 @@
       html{scroll-behavior:auto}
       *{transition:none!important}
     }
+
+    /* MOBILE POLISH v16: unobtrusive WhatsApp, translucent video buttons, compact cards and credits */
+    .card .play{
+      width:64px;height:64px;border-radius:50%;
+      background:rgba(250,250,250,.38);color:#101720;
+      border:1px solid rgba(255,255,255,.48);
+      backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+      box-shadow:0 3px 18px rgba(0,0,0,.18);
+      font-size:1.35rem;display:grid;place-items:center;
+      cursor:pointer;transition:background .2s ease,transform .2s ease;
+    }
+    .card .play:hover,.card .play:focus-visible{background:rgba(255,255,255,.65);transform:translate(-50%,-50%) scale(1.06)}
+    @media(max-width:720px){
+      .card-media{min-height:0;height:clamp(260px,82vw,390px);background-position:center 32%}
+      .card-caption{min-height:64px}
+      .contexts{background:linear-gradient(rgba(4,10,18,.94),rgba(4,10,18,.96)),url('assets/contexts-bg.jpg') center/cover no-repeat,#0a1420}
+      .context{min-height:94px;background:rgba(10,23,37,.4);font-size:.78rem;gap:8px}
+      .context svg{width:29px;height:29px}
+      .credit-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 8px}
+      .credit{min-height:76px;padding:10px 4px}
+      .credit .tv-main{font-size:clamp(.77rem,3.5vw,1rem);line-height:1.15}
+      .credit .tv-sub{font-size:.57rem}
+      .credit.cinema{grid-column:1/-1;min-height:60px;border-left:0;border-top:1px solid var(--line);padding:12px 8px 2px}
+      .sticky-wa,.sticky-wa:not(:hover){
+        left:auto;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));
+        transform:none;width:54px;height:54px;min-height:54px;max-width:none;
+        padding:0;border-radius:50%;font-size:0;box-shadow:0 5px 22px rgba(0,0,0,.35);
+      }
+      .sticky-wa svg{display:block;width:27px;height:27px}
+      footer{padding-bottom:30px}
+    }
+    @media(max-width:420px){
+      .credit-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .sticky-wa{width:52px;min-height:52px;height:52px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+    }
+
   </style>
 </head>
 
@@ -902,7 +938,7 @@
               <button class="play js-media" type="button" data-title="Close-up" data-video="assets/Closeup.mp4" aria-label="Guarda Close-up">▶</button>
             </div>
             <div class="card-caption">
-              <h3>Close-up</h3>
+              <h3>Magia close-up</h3>
               <div class="card-bottom">Guarda il video</div>
             </div>
           </article>
@@ -913,7 +949,7 @@
             </div>
             <div class="card-caption">
               <h3>Bubble Experience</h3>
-              <div class="card-bottom">Video / Gallery</div>
+              <div class="card-bottom">Guarda il video</div>
             </div>
           </article>
 
@@ -969,7 +1005,7 @@
       <div class="wrap showreel-grid">
         <div>
           <div class="eyebrow">Guardami dal vivo</div>
-          <h2>Un minuto vale più di molte parole.</h2>
+          <h2>Lo stupore si vede.</h2>
 
         </div>
 
@@ -989,18 +1025,18 @@
         <div class="why-grid">
           <div class="why-item">
             <div class="why-icon">✒</div>
-            <h3>Autore, prima che esecutore</h3>
-            <p>Creo le mie performance, le adatto al contesto e al pubblico.</p>
+            <h3>Creatività originale</h3>
+            <p>Creo le mie performance, cercando ogni volta nuove forme di stupore.</p>
           </div>
           <div class="why-item">
             <div class="why-icon">◎</div>
-            <h3>Quattro linguaggi, un solo artista</h3>
-            <p>Mentalismo, magia, bolle di sapone e tarocchi in un’unica visione.</p>
+            <h3>Esperienza dal vivo</h3>
+            <p>Quarant’anni di spettacoli in TV, nei teatri e negli eventi.</p>
           </div>
           <div class="why-item">
             <div class="why-icon">♙</div>
-            <h3>Esperienza davanti al pubblico</h3>
-            <p>Quarant’anni di spettacoli in TV, nei teatri e negli eventi.</p>
+            <h3>Spettacoli adattati all’evento</h3>
+            <p>Scelgo e adatto ogni esperienza al pubblico, al luogo e all’occasione.</p>
           </div>
         </div>
       </div>
@@ -1010,7 +1046,6 @@
       <div class="wrap about-grid">
         <div class="about-photo" aria-label="Foto di Paolo Musetti"></div>
         <div class="about-copy">
-          <div class="eyebrow">Paolo Musetti</div>
           <h2>Paolo Musetti</h2>
           <p>Da sempre cerco nuovi modi per sorprendere le persone.</p>
           <p>Mentalismo, magia, bolle di sapone e tarocchi.</p>
@@ -1070,8 +1105,8 @@
     </div>
   </footer>
 
-  <a class="sticky-wa js-wa" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">
-    Verifica disponibilità su WhatsApp
+  <a class="sticky-wa js-wa" aria-label="Contattami su WhatsApp per verificare la disponibilità" title="Verifica disponibilità su WhatsApp" data-topic="Vorrei verificare la disponibilità per il mio evento" href="#">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.5a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.5zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.4 3.3 2.4 3.7 5.7 5.1c2.1.9 2.9.9 3.9.8.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.5.2-1.6z"/></svg>
   </a>
 
   <div class="modal" id="mediaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
