@@ -349,6 +349,41 @@
       stroke-width:1.6;
     }
 
+    /* SCELTA EVENTO: un unico percorso verso il contatto WhatsApp */
+    .contexts-intro{
+      color:var(--text);font-size:clamp(1.3rem,2.5vw,1.85rem);
+      text-align:center;font-weight:750;margin:0 0 7px;
+    }
+    .contexts-description{
+      color:#e0e2e5;text-align:center;max-width:580px;
+      margin:0 auto 20px;font-size:.95rem;line-height:1.48;
+    }
+    .context-choice{
+      appearance:none;-webkit-appearance:none;font-family:inherit;
+      cursor:pointer;background:rgba(6,16,28,.26);
+      border:0;border-right:1px solid var(--line);
+      border-radius:0;transition:background .2s ease,color .2s ease;
+    }
+    .context-choice:hover{background:rgba(216,174,86,.11)}
+    .context-choice.is-selected{
+      background:rgba(216,174,86,.19);
+      color:#fff;box-shadow:inset 0 -3px 0 var(--gold2);
+    }
+    .context-choice:focus-visible{outline:2px solid var(--gold2);outline-offset:-3px}
+    .context-action{
+      display:flex;justify-content:center;align-items:center;
+      flex-wrap:wrap;gap:12px;margin-top:19px;
+    }
+    .context-selected{font-size:.85rem;color:#e6d8b9}
+    .context-action .btn{min-height:46px}
+    @media(max-width:720px){
+      .contexts-description{font-size:.89rem;margin-bottom:16px}
+      .context-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .context-choice{min-height:87px}
+      .context-action{flex-direction:column;margin-top:15px;gap:9px}
+      .context-action .btn{width:100%;max-width:370px}
+    }
+
     /* SHOWREEL */
     .showreel{
       background:#07101a;
@@ -984,30 +1019,39 @@
       </div>
     </section>
 
-    <section class="contexts">
+    <section class="contexts" id="occasioni" aria-labelledby="contextsHeading">
       <div class="wrap">
-        <div class="contexts-title">Per ogni occasione</div>
+        <div class="contexts-title" id="contextsHeading">Per ogni occasione</div>
+        <p class="contexts-intro">Ogni evento ha il suo stupore.</p>
+        <p class="contexts-description">Scegli l'occasione e raccontami cosa stai organizzando. Ti suggerirò l'esperienza più adatta.</p>
 
-        <div class="context-grid">
-          <a class="context js-wa" data-topic="Evento privato" href="#">
-            <svg viewBox="0 0 48 48"><circle cx="18" cy="18" r="6"/><circle cx="30" cy="18" r="6"/><path d="M8 38c2-8 8-12 16-12s14 4 16 12"/></svg>
+        <div class="context-grid" role="group" aria-label="Scegli il tipo di evento">
+          <button class="context context-choice" type="button" data-occasion="Eventi privati" aria-pressed="false">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="18" r="6"/><circle cx="30" cy="18" r="6"/><path d="M8 38c2-8 8-12 16-12s14 4 16 12"/></svg>
             Eventi privati
-          </a>
-          <a class="context js-wa" data-topic="Wedding" href="#">
-            <svg viewBox="0 0 48 48"><circle cx="19" cy="24" r="10"/><circle cx="29" cy="24" r="10"/></svg>
+          </button>
+          <button class="context context-choice is-selected" type="button" data-occasion="Wedding" aria-pressed="true">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="19" cy="24" r="10"/><circle cx="29" cy="24" r="10"/></svg>
             Wedding
-          </a>
-          <a class="context js-wa" data-topic="Evento corporate" href="#">
-            <svg viewBox="0 0 48 48"><path d="M10 38V16h12v22M26 38V8h12v30M14 21h4M14 27h4M30 14h4M30 20h4M30 26h4"/></svg>
+          </button>
+          <button class="context context-choice" type="button" data-occasion="Corporate" aria-pressed="false">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38V16h12v22M26 38V8h12v30M14 21h4M14 27h4M30 14h4M30 20h4M30 26h4"/></svg>
             Corporate
-          </a>
-          <a class="context js-wa" data-topic="Evento in una location" href="#">
-            <svg viewBox="0 0 48 48"><path d="M12 12l10 14M36 12L26 26M17 38l5-12M31 38l-5-12"/><path d="M9 10h8M31 10h8"/></svg>
+          </button>
+          <button class="context context-choice" type="button" data-occasion="Location" aria-pressed="false">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 12l10 14M36 12L26 26M17 38l5-12M31 38l-5-12"/></svg>
             Location
-          </a>
-          <a class="context js-wa" data-topic="Spettacolo in teatro" href="#">
-            <svg viewBox="0 0 48 48"><path d="M8 10h32v28H8z"/><path d="M8 18h32M16 38V18M32 38V18"/></svg>
+          </button>
+          <button class="context context-choice" type="button" data-occasion="Teatri" aria-pressed="false">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v28H8z"/><path d="M8 18h32M16 38V18M32 38V18"/></svg>
             Teatri
+          </button>
+        </div>
+
+        <div class="context-action">
+          <span id="occasionSelected" class="context-selected" aria-live="polite">Hai scelto: Wedding</span>
+          <a id="occasionWhatsapp" class="btn wa" href="https://wa.me/393282924284" target="_blank" rel="noopener">
+            Chiedi un suggerimento a Paolo
           </a>
         </div>
       </div>
@@ -1085,7 +1129,7 @@
           <div class="credit"><div class="tv-logo"><div class="tv-main">AMICI</div><div class="tv-sub">di Maria De Filippi</div></div></div>
           <div class="credit"><div class="tv-logo"><div class="tv-main">AVANTI UN ALTRO!</div><div class="tv-sub">Canale 5</div></div></div>
           <div class="credit"><div class="tv-logo"><div class="tv-main">I SOLITI IGNOTI</div><div class="tv-sub">Rai 1</div></div></div>
-          <div class="credit"><div class="tv-logo"><div class="tv-main">IN FAMIGLIA</div><div class="tv-sub">TV</div></div></div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">IN FAMIGLIA</div><div class="tv-sub">Rai 2</div></div></div>
           <div class="credit cinema"><div><strong>AL CINEMA CON ETTORE SCOLA</strong>“Che strano chiamarsi Federico”</div></div>
         </div>
       </div>
@@ -1167,6 +1211,25 @@
         link.rel = "noopener";
       });
     });
+
+    // Il cliente sceglie l'occasione: il link viene aggiornato prima del clic.
+    const occasionChoices = [...document.querySelectorAll(".context-choice")];
+    const occasionWhatsapp = document.getElementById("occasionWhatsapp");
+    const occasionSelected = document.getElementById("occasionSelected");
+    function selectOccasion(choice){
+      const occasion = choice.dataset.occasion;
+      occasionChoices.forEach(item=>{
+        const selected = item === choice;
+        item.classList.toggle("is-selected",selected);
+        item.setAttribute("aria-pressed",String(selected));
+      });
+      occasionSelected.textContent = "Hai scelto: " + occasion;
+      const message = "Ciao Paolo, sto organizzando un evento di tipo: " + occasion +
+        ". Vorrei un tuo suggerimento sull'esperienza più adatta.\\n\\nData: \\nLuogo: \\nNumero indicativo di ospiti: ";
+      occasionWhatsapp.href = "https://wa.me/393282924284?text=" + encodeURIComponent(message);
+    }
+    occasionChoices.forEach(choice=>choice.addEventListener("click",()=>selectOccasion(choice)));
+    selectOccasion(occasionChoices.find(choice=>choice.getAttribute("aria-pressed")==="true") || occasionChoices[0]);
 
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
