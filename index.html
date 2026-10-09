@@ -636,8 +636,10 @@
     .credit .tv-main{font-size:1.08rem;letter-spacing:-.02em;font-weight:900}
     .credit .tv-sub{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:#d8d4cb;font-weight:700}
     .credit.cinema{
-      border-left:1px solid var(--line);
-      padding-left:18px;
+      grid-column:1 / -1;
+      border-left:0;
+      border-top:1px solid var(--line);
+      padding:18px 10px 0;
       font-size:.76rem;
       font-weight:700;
       line-height:1.25;
@@ -951,6 +953,11 @@
       .center-title{font-size:clamp(.8rem,3.8vw,1.05rem);line-height:1.6}
     }
     .showreel h2{font-size:clamp(1rem,8cqw,3rem)}
+
+    .hero h1 .claim > span{display:block;white-space:nowrap}
+    @media(max-width:720px){
+      .hero h1 .claim{font-size:clamp(1rem,5.5vw,2.25rem);line-height:1.15}
+    }
 </style>
 </head>
 
@@ -988,7 +995,7 @@
         <div class="hero-copy">
           <h1>
             <span class="name">PAOLO MUSETTI</span>
-            <span class="claim">Creo stupore. In forme diverse.</span>
+            <span class="claim"><span>CREO STUPORE</span><span>IN FORME DIVERSE</span></span>
           </h1>
           <p>
             Mentalismo, magia close-up, Bubble Experience e Tarocchi per creare momenti
