@@ -938,7 +938,20 @@
       .sticky-wa{width:52px;min-height:52px;height:52px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
     }
 
-  </style>
+  
+    /* Titoli su due righe, anche sui telefoni. */
+    .showreel-grid > div:first-child{container-type:inline-size;min-width:0}
+    .center-title > span,.showreel h2 > span{display:block;white-space:nowrap}
+    .showreel h2{font-size:clamp(1.5rem,3.4vw,3rem);line-height:1.12}
+    .about-instagram{gap:12px;padding:12px 0;font-weight:700}
+    .about-instagram .ig-icon{width:28px;height:28px}
+    .instagram-handle{display:block;font-size:.85rem;font-weight:400;color:var(--muted);margin-top:2px}
+    @media(max-width:720px){
+      .showreel h2{font-size:clamp(1.25rem,7.3vw,3rem);line-height:1.15}
+      .center-title{font-size:clamp(.8rem,3.8vw,1.05rem);line-height:1.6}
+    }
+    .showreel h2{font-size:clamp(1rem,8cqw,3rem)}
+</style>
 </head>
 
 <body>
@@ -991,7 +1004,7 @@
 
     <section class="section experiences" id="esperienze">
       <div class="wrap">
-        <div class="center-title">Quattro esperienze. Un solo artista.</div>
+        <div class="center-title"><span>Quattro esperienze</span><span>Un solo artista</span></div>
 
         <div class="cards">
           <article class="card" style="--card-image:url('assets/mentalismo.jpg')">
@@ -1085,7 +1098,7 @@
       <div class="wrap showreel-grid">
         <div>
           <div class="eyebrow">Guardami dal vivo</div>
-          <h2>Lo stupore si vede.<br>L’emozione si vive</h2>
+          <h2><span>Lo stupore si vede.</span><span>L’emozione si vive</span></h2>
 
         </div>
 
@@ -1137,7 +1150,7 @@
   <rect x="5.2" y="5.2" width="13.6" height="13.6" rx="4" fill="none" stroke="#fff" stroke-width="1.8"/>
   <circle cx="12" cy="12" r="3.25" fill="none" stroke="#fff" stroke-width="1.8"/>
   <circle cx="16.65" cy="7.45" r="1.05" fill="#fff"/>
-</svg> Scopri altri momenti dal vivo su Instagram →
+</svg><span>Seguimi su Instagram<span class="instagram-handle">@musettishow</span></span>
           </a>
         </div>
       </div>
@@ -1154,6 +1167,7 @@
           <div class="credit"><div class="tv-logo"><div class="tv-main">AVANTI UN ALTRO!</div><div class="tv-sub">Canale 5</div></div></div>
           <div class="credit"><div class="tv-logo"><div class="tv-main">I SOLITI IGNOTI</div><div class="tv-sub">Rai 1</div></div></div>
           <div class="credit"><div class="tv-logo"><div class="tv-main">IN FAMIGLIA</div><div class="tv-sub">Rai 2</div></div></div>
+          <div class="credit"><div class="tv-logo"><div class="tv-main">HOTEL CERCASI</div><div class="tv-sub">Real Time</div></div></div>
           <div class="credit cinema"><div><strong>AL CINEMA CON ETTORE SCOLA</strong>“Che strano chiamarsi Federico”</div></div>
         </div>
       </div>
